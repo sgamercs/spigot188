@@ -1,7 +1,7 @@
 [config]
 name = [Spigot] 1.8.8
 source = http://ci.md-5.net/job/Spigot/lastStableBuild/artifact/Spigot-Server/target/spigot.jar
-configSource = https://justpaste.it/7cla6
+configSource = https://raw.githubusercontent.com/sgamercs/spigot188/master/spigot188
 #safeConfSections = ^(encoding|commands|parse_.+)$
 
 [encoding]
