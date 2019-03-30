@@ -1,0 +1,73 @@
+[config]
+name = [Spigot] 1.8.8
+source = http://ci.md-5.net/job/Spigot/lastStableBuild/artifact/Spigot-Server/target/spigot.jar
+configSource = https://justpaste.it/7cla6
+#safeConfSections = ^(encoding|commands|parse_.+)$
+
+[encoding]
+encode = utf-8
+decode = utf-8
+fileEncoding = latin-1
+
+[start]
+command = "{JAVA}" -Xmx{MAX_MEMORY}M -Xms{START_MEMORY}M -XX:MaxPermSize=128M -Djline.terminal=jline.UnsupportedTerminal -jar "{JAR}" nogui
+
+[settings]
+#restartOnTimeout = True
+#logFile = server.log
+#followLog = False
+#logCheckInterval = 500
+#logRotateSize = 
+#logPersistent = False
+#logBackupCount = 5
+#logMaxRead = 4096
+#logRotateCheckInterval = 20000
+#debugRawLine = False
+#debugCleanLine = False
+#debugParseLine = False
+#useLauncher = False
+#pongMode = 0
+#pingTimeout = 20000
+#pingInterval = 15000
+#crashRestartDelay = 2000
+#rateLimit = 30
+#saveInterval = 600000
+#savePlayerInfo = 1
+#debugSettings = False
+#restartOnCrash = False
+#debugParse = False
+
+[plugins]
+pluginDir = plugins
+pluginMatch = \.(jar|zip)$
+
+[commands]
+say = say
+list = list
+save-on = save-on
+save-off = save-off
+save-all = save-all
+stop = stop
+tell = tell
+give = give
+tp = tp
+deop = deop
+op = op
+pardon-ip = pardon-ip
+ban-ip = ban-ip
+pardon = pardon
+ban = ban
+kick = kick
+help = help
+
+[parse_startup]
+start1=^\s*Listening on
+
+[parse_log]
+start=^(?P(:?[-\d]+ )?\[?[:\d]+\]?)\s+\[?(?P[^]]+)\]\:?\s+(:?\[[^]]+\]\s+)?(?P.*)$
+
+[parse_connect]
+shortStart=logged in with entity id \d+ at
+
+[parse_clean]
+start=(^[>\r\s]+|\x1b(\[|\])[0-9;]*m?|\x08)
